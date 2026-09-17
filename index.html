@@ -39,6 +39,22 @@
             font-size: 1.2rem;
             margin-bottom: 30px;
         }
+        .music-box {
+            background: #fff3f8;
+            padding: 12px 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ffd1e8;
+        }
+        .music-box p {
+            margin: 0 0 8px 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        audio {
+            width: 100%;
+            height: 40px;
+        }
         .info-box {
             background: #fff3f8;
             padding: 15px 20px;
@@ -85,11 +101,20 @@
         }
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
             margin-top: 30px;
         }
-        .gallery img {
+        .img-tall {
+            grid-row: span 2;
+            width: 100%;
+            height: 100%;
+            max-height: 375px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .img-normal {
             width: 100%;
             height: 180px;
             object-fit: cover;
@@ -105,10 +130,18 @@
         <div class="nickname">"Chuyita"</div>
         <h2>¡Te invitamos a su gran fiesta sorpresa de 70 años!</h2>
 
+        <div class="music-box">
+            <p>Dale play para escuchar la música:</p>
+            <audio controls loop>
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+        </div>
+
         <div class="info-box">
             <p><strong>📅 Fecha:</strong> 27 de Septiembre</p>
-            <p><strong>⏰ Hora:</strong> 12:00 PM</p>
-            <p><strong>📍 Lugar:</strong> Tequisquiapan, Qro.</p>
+            <p><strong>⏰ Hora:</strong> 11:00 AM</p>
+            <p><strong>📍 Lugar:</strong> Hotel La Plaza de TXQ</p>
             <div style="text-align: center; margin-top: 15px;">
                 <a href="https://maps.app.goo.gl/XSxNDKKDgT9BoGg16" target="_blank" class="btn-map">Abrir Ubicación en Maps</a>
             </div>
@@ -123,14 +156,14 @@
 
         <h3>Galería de Recuerdos</h3>
         <div class="gallery">
-            <img src="https://github.com/itzelarrrr-alt/Invitaci-n-Evento/blob/main/IMG_20210416_225608566.jpg?raw=true" alt="Foto 1">
-            <img src="https://github.com/itzelarrrr-alt/Invitaci-n-Evento/blob/main/IMG_20250515_163716960_HDR.jpg?raw=true" alt="Foto 2">
-            <img src="https://github.com/itzelarrrr-alt/Invitaci-n-Evento/blob/main/IMG_20260801_151826231.jpg?raw=true" alt="Foto 3">
+            <img src="https://github.com/itzelarrrr-alt/Invitaci-n-Evento/blob/main/80854829-e84d-4acb-a537-732e2cc6d2e9.jpg?raw=true" alt="Foto 1" class="img-tall">
+            <img src="https://github.com/itzelarrrr-alt/Invitaci-n-Evento/blob/main/caaeff7d-7eca-42f7-8e03-079af4acee12.jpg?raw=true" alt="Foto 2" class="img-normal">
+            <img src="https://github.com/itzelarrrr-alt/Invitaci-n-Evento/blob/main/IMG_20210416_225608566.jpg?raw=true" alt="Foto 3" class="img-normal">
         </div>
     </div>
 
     <script>
-        const eventDate = new Date("September 27, 2026 12:00:00").getTime();
+        const eventDate = new Date("September 27, 2026 11:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
             const distance = eventDate - now;
